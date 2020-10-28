@@ -1,5 +1,11 @@
 <template>
-  <base-container title="Vuex"></base-container>
+  <base-container title="Vuex">
+    <h3>{{ counter }}</h3>
+    <h3>{{ normalizedCounter }}</h3>
+    <button @click="addOne">Add 2</button>
+    <h3><input v-model="number" /></h3>
+    <button @click="addNumber">Add ^</button>
+  </base-container>
 </template>
 
 <script>
@@ -9,6 +15,29 @@ export default {
   components: {
     BaseContainer,
   },
+  data() {
+    return {
+      number: 0
+    }
+  },
+  computed: {
+    counter() {
+      return this.$store.getters.finalCounter
+    },
+    normalizedCounter() {
+      return this.$store.getters.normalizedCounter
+    }
+  },
+  methods: {
+    addOne() {
+      this.$store.commit('increment');
+    },
+    addNumber() {
+      this.$store.commit('increase', {
+        value: parseInt(this.number)
+      });
+    }
+  }
 };
 </script>
 
