@@ -41,6 +41,7 @@ const store = createStore({
     },
     increase(context, payload) {
       context.commit("increase", payload);
+      // context object has dispatch method, allowing you to dispatch other actions in the store here, and also getters, giving you access to calculated values from this store
     },
   },
 });
