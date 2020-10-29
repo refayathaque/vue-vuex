@@ -1,13 +1,13 @@
-import { createApp } from 'vue'
-import { createStore }  from 'vuex';
+import { createApp } from "vue";
+import { createStore } from "vuex";
 
-import App from './App.vue'
+import App from "./App.vue";
 
 const store = createStore({
   state() {
     return {
-      counter: 0
-    }
+      counter: 0,
+    };
   },
   getters: {
     finalCounter(state) {
@@ -20,23 +20,33 @@ const store = createStore({
         return 0;
       }
       if (finalCounter > 100) {
-        return 100
+        return 100;
       }
-      return finalCounter
-    }
+      return finalCounter;
+    },
   },
   mutations: {
+    // must be synchronous, can't be asynchronous
     increment(state) {
       state.counter = state.counter + 2;
     },
     increase(state, payload) {
       state.counter = state.counter + payload.value;
-    }
-  }
-})
+    },
+  },
+  actions: {
+    // asynchronous operations allowed
+    increment(context) {
+      context.commit("increment");
+    },
+    increase(context, payload) {
+      context.commit("increase", payload);
+    },
+  },
+});
 
-const app = createApp(App)
+const app = createApp(App);
 
 app.use(store);
 
-app.mount('#app')
+app.mount("#app");

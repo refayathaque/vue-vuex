@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import BaseContainer from './components/BaseContainer.vue';
+import BaseContainer from "./components/BaseContainer.vue";
 
 export default {
   components: {
@@ -17,27 +17,27 @@ export default {
   },
   data() {
     return {
-      number: 0
-    }
+      number: 0,
+    };
   },
   computed: {
     counter() {
-      return this.$store.getters.finalCounter
+      return this.$store.getters.finalCounter;
     },
     normalizedCounter() {
-      return this.$store.getters.normalizedCounter
-    }
+      return this.$store.getters.normalizedCounter;
+    },
   },
   methods: {
     addOne() {
-      this.$store.commit('increment');
+      this.$store.dispatch("increment"); // dispatch takes the action name (as string)
     },
     addNumber() {
-      this.$store.commit('increase', {
-        value: parseInt(this.number)
+      this.$store.dispatch("increase", {
+        value: parseInt(this.number),
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
