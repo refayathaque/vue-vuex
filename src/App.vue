@@ -1,5 +1,5 @@
 <template>
-  <base-container title="Vuex">
+  <base-container v-if="getAuthStatus.loggedIn" title="Vuex">
     <h3>{{ finalCounter }}</h3>
     <h3>{{ normalizedCounter }}</h3>
     <!-- <button @click="addOne">Add 2</button> -->
@@ -35,7 +35,8 @@ export default {
     // normalizedCounter() {
     //   return this.$store.getters.normalizedCounter;
     // },
-    ...mapGetters(["finalCounter", "normalizedCounter"]),
+    ...mapGetters("counterModule", ["finalCounter", "normalizedCounter", "getAuthStatus"]),
+    ...mapGetters(["getAuthStatus"]),
   },
   methods: {
     // addOne() {
@@ -47,7 +48,7 @@ export default {
     //   });
     // },
     // dispatch takes the action name (as string) and optional payload
-    ...mapActions(["increment", "increase"]),
+    ...mapActions("counterModule", ["increment", "increase"]),
     // with ^ syntax, we call the actions (and pass in the payload) directly through template events
   },
 };
