@@ -11,17 +11,20 @@
   <base-container title="UserAuth.vue">
     <UserAuth />
   </base-container>
+  <ShoppingApp />
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import BaseContainer from "./components/BaseContainer.vue";
 import UserAuth from "./components/UserAuth.vue";
+import ShoppingApp from "./components/ShoppingApp.vue";
 
 export default {
   components: {
     BaseContainer,
     UserAuth,
+    ShoppingApp,
   },
   data() {
     return {
