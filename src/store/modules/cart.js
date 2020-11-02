@@ -32,7 +32,7 @@ const cartModule = {
     },
     removeProductFromCart(state, payload) {
       const productInCartIndex = state.cart.items.findIndex(
-        (cartItem) => cartItem.productId === payload
+        (cartItem) => cartItem.productId === payload.prodId
       );
       const prodData = state.cart.items[productInCartIndex];
       state.cart.items.splice(productInCartIndex, 1);
