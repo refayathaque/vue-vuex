@@ -2,7 +2,7 @@
   <section>
     <ul>
       <product-item
-        v-for="prod in products"
+        v-for="prod in getProducts"
         :key="prod.id"
         :id="prod.id"
         :title="prod.title"
@@ -15,21 +15,24 @@
 </template>
 
 <script>
-import ProductItem from '../components/ProductItem.vue';
+import { mapGetters } from "vuex";
+import ProductItem from "../components/ProductItem.vue";
 
 export default {
-  inject: ['products'],
   components: {
     ProductItem,
+  },
+  computed: {
+    ...mapGetters(["getProducts"]),
   },
 };
 </script>
 
 <style scoped>
-  ul {
-    list-style: none;
-    margin: 2rem auto;
-    padding: 0;
-    max-width: 40rem;
-  }
+ul {
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  max-width: 40rem;
+}
 </style>

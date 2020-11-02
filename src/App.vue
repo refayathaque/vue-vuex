@@ -38,7 +38,7 @@ export default {
     // normalizedCounter() {
     //   return this.$store.getters.normalizedCounter;
     // },
-    ...mapGetters("counterModule", ["finalCounter", "normalizedCounter", "getAuthStatus"]),
+    ...mapGetters("counterModule", ["finalCounter", "normalizedCounter"]),
     ...mapGetters(["getAuthStatus"]),
   },
   methods: {
