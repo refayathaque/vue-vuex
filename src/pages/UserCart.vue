@@ -26,6 +26,7 @@ export default {
   },
   computed: {
     ...mapGetters("cartModule", ["getCartData"]),
+    // for namespaced modules the first argument must be module name as per what's in `modules` object in root state
     cartTotal() {
       return this.getCartData.total.toFixed(2);
     }

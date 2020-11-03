@@ -10,7 +10,6 @@ const cartModule = {
   },
   mutations: {
     addProductToCart(state, payload) {
-      console.log(payload)
       const productInCartIndex = state.cart.items.findIndex(
         (ci) => ci.productId === payload.id
       );
@@ -28,7 +27,6 @@ const cartModule = {
       }
       state.cart.qty++;
       state.cart.total += payload.price;
-      console.log(state)
     },
     removeProductFromCart(state, payload) {
       const productInCartIndex = state.cart.items.findIndex(
@@ -42,6 +40,12 @@ const cartModule = {
   },
   actions: {
     addProductToCart(context, payload) {
+      console.log(context)
+      const products = context.rootGetters['getProducts']
+      context.dispatch("changeAuthStatus", null, { root: true })
+      // dispatch takes 3 args: action type, payload, options
+      // option must be provided if you want to dispatch action in another module/root store
+      console.log(products)
       context.commit("addProductToCart", payload)
     },
     removeProductFromCart(context, payload) {
