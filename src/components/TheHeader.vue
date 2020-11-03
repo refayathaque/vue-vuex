@@ -28,8 +28,13 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getAuthStatus"]),
-    ...mapGetters("cartModule", ["getCartData"]),
+    // ...mapGetters(["getAuthStatus"]),
+    // ...mapGetters("cartModule", ["getCartData"]),
+    // another, but more verbose way, or accessing getters from root state and namespaced modules below
+    ...mapGetters({
+      getAuthStatus: "getAuthStatus",
+      getCartData: "cartModule/getCartData"
+    }),
     determineAuthButton() {
       if (!this.getAuthStatus.shopLoggedIn) {
         return "Login"
