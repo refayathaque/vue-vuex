@@ -1,7 +1,9 @@
 <template>
   <section>
     <h2>Your Cart</h2>
-    <h3>Total Amount: <base-badge mode="elegant">${{ cartTotal }}</base-badge></h3>
+    <h3>
+      Total Amount: <base-badge mode="elegant">${{ cartTotal }}</base-badge>
+    </h3>
     <ul>
       <cart-item
         v-for="item in getCartData.items"
@@ -18,7 +20,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import CartItem from '../components/CartItem.vue';
+import CartItem from "../components/CartItem.vue";
 
 export default {
   components: {
@@ -29,8 +31,8 @@ export default {
     // for namespaced modules the first argument must be module name as per what's in `modules` object in root state
     cartTotal() {
       return this.getCartData.total.toFixed(2);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -46,7 +48,7 @@ h2 {
   padding-bottom: 1rem;
 }
 h3 {
- text-align: center;
+  text-align: center;
 }
 ul {
   list-style: none;

@@ -6,7 +6,7 @@ const counterModule = {
   state() {
     return {
       counter: 0,
-    }
+    };
   },
   mutations: {
     increment(state) {
@@ -19,7 +19,7 @@ const counterModule = {
   actions: {
     increment(context) {
       context.commit("increment");
-      console.log("context", context)
+      console.log("context", context);
     },
     increase(context, payload) {
       context.commit("increase", payload);
@@ -28,8 +28,8 @@ const counterModule = {
   },
   getters: {
     finalCounter(state, rootState) {
-      console.log("state", state)
-      console.log("rootState", rootState)
+      console.log("state", state);
+      console.log("rootState", rootState);
       return state.counter;
     },
     normalizedCounter(_, getters) {
@@ -43,7 +43,7 @@ const counterModule = {
       }
       return finalCounter;
     },
-  }
-}
+  },
+};
 
 export default counterModule;

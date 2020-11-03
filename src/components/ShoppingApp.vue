@@ -5,11 +5,11 @@
 
 <script>
 import { mapGetters } from "vuex";
-import TheHeader from './TheHeader.vue';
+import TheHeader from "./TheHeader.vue";
 
 export default {
   components: {
-    TheHeader
+    TheHeader,
   },
   data() {
     return {

@@ -13,7 +13,9 @@
       </div>
     </div>
     <div class="product__actions">
-      <button @click="addProductToCart({ id, image, title, price })">Add to Cart</button>
+      <button @click="addProductToCart({ id, image, title, price })">
+        Add to Cart
+      </button>
     </div>
   </li>
 </template>
@@ -22,9 +24,9 @@
 import { mapActions } from "vuex";
 
 export default {
-  props: ['id', 'image', 'title', 'price', 'description'],
+  props: ["id", "image", "title", "price", "description"],
   methods: {
-    ...mapActions("cartModule", ["addProductToCart"])
+    ...mapActions("cartModule", ["addProductToCart"]),
   },
 };
 </script>
