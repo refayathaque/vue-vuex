@@ -33,19 +33,19 @@ export default {
     // another, but more verbose way, or accessing getters from root state and namespaced modules below
     ...mapGetters({
       getAuthStatus: "getAuthStatus",
-      getCartData: "cartModule/getCartData"
+      getCartData: "cartModule/getCartData",
     }),
     determineAuthButton() {
       if (!this.getAuthStatus.shopLoggedIn) {
-        return "Login"
+        return "Login";
       } else {
-        return "Logout"
+        return "Logout";
       }
-    }
+    },
   },
   methods: {
     ...mapActions(["changeShopAuthStatus"]),
-  }
+  },
 };
 </script>
 

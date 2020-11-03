@@ -1,5 +1,7 @@
 <template>
-  <button v-if="!getAuthStatus.loggedIn" @click="changeAuthStatus">Login</button>
+  <button v-if="!getAuthStatus.loggedIn" @click="changeAuthStatus">
+    Login
+  </button>
   <button v-else @click="changeAuthStatus">Logout</button>
 </template>
 
@@ -8,10 +10,10 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getAuthStatus"])
+    ...mapGetters(["getAuthStatus"]),
   },
   methods: {
-    ...mapActions(["changeAuthStatus"])
-  }
-}
+    ...mapActions(["changeAuthStatus"]),
+  },
+};
 </script>

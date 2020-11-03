@@ -6,7 +6,7 @@ const cartModule = {
   state() {
     return {
       cart: { items: [], total: 0, qty: 0 },
-    }
+    };
   },
   mutations: {
     addProductToCart(state, payload) {
@@ -40,23 +40,23 @@ const cartModule = {
   },
   actions: {
     addProductToCart(context, payload) {
-      console.log(context)
-      const products = context.rootGetters['getProducts']
-      context.dispatch("changeAuthStatus", null, { root: true })
+      console.log(context);
+      const products = context.rootGetters["getProducts"];
+      context.dispatch("changeAuthStatus", null, { root: true });
       // dispatch takes 3 args: action type, payload, options
       // option must be provided if you want to dispatch action in another module/root store
-      console.log(products)
-      context.commit("addProductToCart", payload)
+      console.log(products);
+      context.commit("addProductToCart", payload);
     },
     removeProductFromCart(context, payload) {
-      context.commit("removeProductFromCart", payload)
+      context.commit("removeProductFromCart", payload);
     },
   },
   getters: {
     getCartData({ cart }) {
       return cart;
-    }
-  }
-}
+    },
+  },
+};
 
 export default cartModule;
